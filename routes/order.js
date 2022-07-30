@@ -1,10 +1,14 @@
 const express = require("express");
+const User = require("../model/User");
 const router = express.Router();
 const Users = require("../model/User");
 
 router.get("/", async (req, res) => {
+  const user = await User.findById(res.locals.user._id).populate('orders.items.product')
+  // console.log(user.orders);
   res.render("order", {
     title: "Order",
+    user
   });
 });
 

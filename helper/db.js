@@ -1,7 +1,7 @@
-const url = 'mongodb+srv://Bobur:2vhYyYBf659w6eCm@cluster0.jnpjw6n.mongodb.net/Product'
+const url = 'mongodb+srv://sherzod:Rh4oLw5ie68E9Dbx@cluster0.u2igbzj.mongodb.net/severyanochka'
 // const url = "mongodb://localhost:27017/myapp";
 const mongoose = require("mongoose");
-
+// Rh4oLw5ie68E9Dbx
 module.exports = async () => {
   try {
     await mongoose.connect(url, () => {

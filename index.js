@@ -16,7 +16,7 @@ const hbs = create({
 
 require("./helper/db")();
 const store = new MongoDBStore({
-  uri: "mongodb+srv://Bobur:2vhYyYBf659w6eCm@cluster0.jnpjw6n.mongodb.net/Product",
+  uri: "mongodb+srv://sherzod:Rh4oLw5ie68E9Dbx@cluster0.u2igbzj.mongodb.net/severyanochka",
   collection: "mySession",
 });
 

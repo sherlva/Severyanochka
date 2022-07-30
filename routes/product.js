@@ -7,7 +7,7 @@ const Categories = require("../model/Category");
 
 router.get("/add", async (req, res) => {
   const categories = await Categories.find();
-  
+  console.log(categories);
   res.render("add", {
     title: "add",
     categories,
@@ -15,27 +15,31 @@ router.get("/add", async (req, res) => {
 });
 
 router.post("/add", upload.single("img"), async (req, res) => {
-  const error = loginValidation(req.body);
-  if (!!error) {
+  // const error = loginValidation(req.body);
+  // if (!!error) {
+  //   console.log(error);
+  //   res.redirect("/admin/product/add");
+  //   return;
+  // }
+  // const { name, price, discount, star, brand, country, catalog, weight } =
+  //   req.body;
+  
+  if (!req.file) {
+    console.log('Img is not picked');
+    res.redirect("/admin/product/add");
+    return;
+  }
+
+  req.body.img = "/img/product-img/" + req.file.filename
+
+  const product = new Mongo(req.body);
+  try {
+    await product.save();
+  } catch (error) {
     console.log(error);
     res.redirect("/admin/product/add");
     return;
   }
-  const { name, price, discount, star, brand, country, catalog, weight } =
-    req.body;
-
-  const product = new Mongo({
-    name,
-    price,
-    discount,
-    star,
-    brand,
-    country,
-    catalog,
-    weight,
-    img: "/img/product-img/" + req.file.filename,
-  });
-  await product.save();
   res.redirect("/product/add");
 });
 

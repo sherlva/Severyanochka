@@ -8,11 +8,7 @@
         <div class="header_ordered_title">
           <div class="ordered_title_directions">
             <a class="ordered_title_directions_main" href="/">Главная</a>
-            <img
-              class="ordered_title_directions_svg"
-              src="/svg/r-arrow.svg"
-              alt="svg"
-            />
+            <img class="ordered_title_directions_svg" src="/svg/r-arrow.svg" alt="svg" />
             <a class="ordered_title_directions_next" href="/order">Заказы</a>
           </div>
           <h1 class="title_text">Заказы</h1>
@@ -30,31 +26,32 @@
               <p class="time_price_value">3 006,83 ₽</p>
               <div class="time_price_date">
                 <label class="price_date_text" for="inp">Когда доставить</label>
-                <input class="hidden_input" type="date" id="inp"/>
+                <input class="hidden_input" type="date" id="inp" />
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="ordered_cards">
+        {{#each user.orders.items}}
         <div class="ordered_cards_card">
           <div class="card_top">
             <div class="card_icons_position">
               <div class="card_top_shopping">
                 <img src="/svg/shop-bin.svg" alt="" />
               </div>
-              <span class="card_top_count">2</span>
+              <span class="card_top_count">{{count}}</span>
               <div class="card_top_like">
                 <img src="/svg/like.svg" alt="svg" />
               </div>
             </div>
             <div class="card_top_img">
-              <img src="/img/image_first.png" alt="png" />
+              <img src="{{product.img}}" alt="png" />
             </div>
           </div>
           <div class="card_bottom">
-            <p class="card_bottom_price"> 159,99 ₽</p>
-            <p class="card_bottom_info">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»</p>
+            <p class="card_bottom_price">{{product.price}}</p>
+            <p class="card_bottom_info">{{product.name}}</p>
             <div class="card_bottom_rating">
               <img class="rating_star" src="/svg/shop-bin.svg" alt="svg" />
               <img class="rating_star" src="/svg/rating.svg" alt="svg" />
@@ -62,105 +59,21 @@
               <img class="rating_star" src="/svg/rating.svg" alt="svg" />
               <img class="rating_star" src="/svg/rating.svg" alt="svg" />
             </div>
-            <button class="add_to_shopping_card">В корзину</button>
+            
           </div>
         </div>
-        <div class="ordered_cards_card">
-          <div class="card_top">
-            <div class="card_icons_position">
-              <div class="card_top_shopping">
-                <img src="/svg/shop-bin.svg" alt="" />
-              </div>
-              <span class="card_top_count">2</span>
-              <div class="card_top_like">
-                <img src="/svg/like.svg" alt="svg" />
-              </div>
-            </div>
-            <div class="card_top_img">
-              <img src="/img/image_first.png" alt="png" />
-            </div>
-          </div>
-          <div class="card_bottom">
-            <p class="card_bottom_price"> 159,99 ₽</p>
-            <p class="card_bottom_info">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»</p>
-            <div class="card_bottom_rating">
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-            </div>
-            <button class="add_to_shopping_card">В корзину</button>
-          </div>
-        </div>
-        <div class="ordered_cards_card">
-          <div class="card_top">
-            <div class="card_icons_position">
-              <div class="card_top_shopping">
-                <img src="/svg/shop-bin.svg" alt="" />
-              </div>
-              <span class="card_top_count">2</span>
-              <div class="card_top_like">
-                <img src="/svg/like.svg" alt="svg" />
-              </div>
-            </div>
-            <div class="card_top_img">
-              <img src="/img/image_first.png" alt="png" />
-            </div>
-          </div>
-          <div class="card_bottom">
-            <p class="card_bottom_price"> 159,99 ₽</p>
-            <p class="card_bottom_info">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»</p>
-            <div class="card_bottom_rating">
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-            </div>
-            <button class="add_to_shopping_card">В корзину</button>
-          </div>
-        </div>
-        <div class="ordered_cards_card">
-          <div class="card_top">
-            <div class="card_icons_position">
-              <div class="card_top_shopping">
-                <img src="/svg/shop-bin.svg" alt="" />
-              </div>
-              <span class="card_top_count">2</span>
-              <div class="card_top_like">
-                <img src="/svg/like.svg" alt="svg" />
-              </div>
-            </div>
-            <div class="card_top_img">
-              <img src="/img/image_first.png" alt="png" />
-            </div>
-          </div>
-          <div class="card_bottom">
-            <p class="card_bottom_price"> 159,99 ₽</p>
-            <p class="card_bottom_info">Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»</p>
-            <div class="card_bottom_rating">
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-            </div>
-            <button class="add_to_shopping_card">В корзину</button>
-          </div>
-        </div>
+        {{/each}}
+
+
       </div>
       <div class="ordered_view">
-        <button class="ordered_view_btn"><img
-            class="view_btn_icon"
-            src="/svg/eye.svg"
-            alt="svg"
-          />Просмотреть заказ</button>
+        <button class="ordered_view_btn"><img class="view_btn_icon" src="/svg/eye.svg" alt="svg" />Просмотреть
+          заказ</button>
       </div>
     </div>
   </header>
 
-  <section class="second_part container">
+  {{!-- <section class="second_part container">
     <div class="second_part_time">
       <div class="part_time_times">
         <p class="time_times_time">01.04.2021</p>
@@ -289,7 +202,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   <section class="third_part container">
     <div class="third_part_time">
@@ -553,7 +466,7 @@
     </div>
   </section>
 
-  <section class="for_view_more container">
+  {{!-- <section class="for_view_more container">
     <div class="hide_cards">
       <div class="view_part_cards">
         <div class="view_part_cards_card">
@@ -784,7 +697,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   <div class="view_more container">
     <button class="view_more_btn">Показать ещё</button>

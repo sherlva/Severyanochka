@@ -19,7 +19,7 @@ router.post('/:id', async (req, res) => {
   }
   const isProductYes = user.favorites.items.find((item) => item.product._id == req.params.id);
   if(isProductYes){
-    res.redirect('/favorites')
+    res.redirect('/')
     return;
   }
   
@@ -30,7 +30,7 @@ router.post('/:id', async (req, res) => {
         $push: { "favorites.items": { product: req.params.id } },
       }
     );
-    res.redirect('/favorites')
+    res.redirect('/')
     } catch (error) {
     console.log(error)
     res.redirect('/')
