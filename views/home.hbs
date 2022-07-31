@@ -43,17 +43,17 @@
                     </div>
                     <img src="{{img}}" alt="" class="card_img">
                     <div class="discount_precent">
-                        <p>-50%</p>
+                        <p>{{discount}}</p>
                     </div>
                 </div>
                 <div class="card_bottom">
                     <div class="card_price row justify-content-between align-items-center">
                         <div class="with_card">
-                            <p class="with_card_price">44,50 ₽</p>
+                            <p class="with_card_price" data-price="{{price}}" data-discount="{{discount}}"></p>
                             <P class="with_card_text">С картой</P>
                         </div>
                         <div class="without_card">
-                            <p class="without_card_price">50,50 ₽</p>
+                            <p class="without_card_price">{{price}} ₽</p>
                             <P class="without_card_text">Обычная</P>
                         </div>
                     </div>

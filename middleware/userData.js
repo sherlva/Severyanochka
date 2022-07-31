@@ -4,6 +4,8 @@ module.exports = async (req, res, next) => {
       return next();
   }
 
+
+
   res.locals.user = await User.findById(req.session.user._id);
   next();
 };

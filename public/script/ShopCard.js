@@ -26,6 +26,16 @@ window.addEventListener("load", function (e) {
     });
   }
 
+  function getTotalPrice() {
+    const product_price = document.querySelectorAll(".totalprice_product");
+
+    product_price.forEach((item) => {
+      item.innerHTML =
+        item.getAttribute("data-price") * item.getAttribute("data-count");
+    });
+  }
+  getTotalPrice();
+
   productItemFormMinus.forEach((minus, index) => {
     minus.addEventListener("click", () => {
       const productid = minus.getAttribute("data-productid");
@@ -33,7 +43,8 @@ window.addEventListener("load", function (e) {
       fetchCount(productid, "minus")
         .then((res) => {
           console.log(res);
-
+          const countPrice = minus.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[1].childNodes[1]
+          countPrice.innerHTML= countPrice.getAttribute("data-price") * res.data.count
           if (res.isDeleted) {
             minus.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
           } else {
@@ -58,6 +69,10 @@ window.addEventListener("load", function (e) {
 
       fetchCount(productid, "plus")
         .then((res) => {
+          const countPrice = minus.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[1].childNodes[1]
+          countPrice.innerHTML= countPrice.getAttribute("data-price") * res.data.count
+
+
           productItemFormCount[index].innerHTML = res.data.count;
           total_price.innerHTML = res.data.price + " ₽";
           productItemFormPlus[index].disabled = false;

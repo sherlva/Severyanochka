@@ -4,6 +4,8 @@ const Users = require("../model/User");
 
 router.get("/", async (req, res) => {
   const user = res.locals.user
+
+
   const pro = await Users.findById(user._id).populate("favorites.items.product")
   res.render("favorites", {
     title: "Favorites page",
