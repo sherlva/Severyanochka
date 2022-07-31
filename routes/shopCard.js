@@ -139,6 +139,16 @@ router.post("/upload/:productid/:mode", async (req, res) => {
   }
 });
 
+// router.post("/removes", async (req, res) => {
+//   const { delProducts } = req.body;
+
+//   try {
+//     await Products.findByIdAndUpdate(res.locals.user._id, {
+//       _id
+//     });
+//   } catch (error) {}
+// });
+
 // router.post("/remove", async (req, res) => {
 //   const userid = req.locals.user._id;
 //   const { id } = req.body;

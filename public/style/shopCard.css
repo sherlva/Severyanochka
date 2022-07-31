@@ -110,6 +110,14 @@
   margin-bottom: 10px;
 }
 
+.order_cards_card.selected{
+  background: #fcd5ba;
+}
+
+.remove_form input{
+  display: none;
+}
+
 .order_cards_card:last-child {
   opacity: 0.5;
 }

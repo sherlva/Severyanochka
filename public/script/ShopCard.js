@@ -43,8 +43,11 @@ window.addEventListener("load", function (e) {
       fetchCount(productid, "minus")
         .then((res) => {
           console.log(res);
-          const countPrice = minus.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[1].childNodes[1]
-          countPrice.innerHTML= countPrice.getAttribute("data-price") * res.data.count
+          const countPrice =
+            minus.parentElement.parentElement.parentElement.parentElement
+              .childNodes[3].childNodes[1].childNodes[1];
+          countPrice.innerHTML =
+            countPrice.getAttribute("data-price") * res.data.count;
           if (res.isDeleted) {
             minus.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
           } else {
@@ -69,9 +72,11 @@ window.addEventListener("load", function (e) {
 
       fetchCount(productid, "plus")
         .then((res) => {
-          const countPrice = minus.parentElement.parentElement.parentElement.parentElement.childNodes[3].childNodes[1].childNodes[1]
-          countPrice.innerHTML= countPrice.getAttribute("data-price") * res.data.count
-
+          const countPrice =
+            minus.parentElement.parentElement.parentElement.parentElement
+              .childNodes[3].childNodes[1].childNodes[1];
+          countPrice.innerHTML =
+            countPrice.getAttribute("data-price") * res.data.count;
 
           productItemFormCount[index].innerHTML = res.data.count;
           total_price.innerHTML = res.data.price + " ₽";
@@ -84,5 +89,43 @@ window.addEventListener("load", function (e) {
           alert(err);
         });
     });
+  });
+
+  function selectProduct() {
+    const selectCart = document.querySelectorAll(".order_cards_card");
+    selectCart.forEach((item) => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("selected");
+      });
+    });
+  }
+
+  selectProduct();
+
+  const remove_form = document.querySelector(".remove_form");
+  const remove = document.querySelector(".choose_remove .remove");
+  remove.addEventListener("click", () => {
+    const selectCart = document.querySelectorAll(".order_cards_card");
+    const products = [];
+    selectCart.forEach((item) => {
+      if (item.classList.contains("selected")) {
+        products.push(item.getAttribute("data-id"));
+      }
+    });
+
+    products.forEach((pr) => {
+      const input = document.createElement("input");
+      input.value = pr;
+      input.setAttribute("name", "products");
+      remove_form.appendChild(input);
+    });
+
+    remove_form.submit();
+
+    // const form = document.createElement("form");
+    // form.setAttribute("action", "/shopping/removes");
+    // form.setAttribute("method", "post");
+
+    // form.submit();
   });
 });
