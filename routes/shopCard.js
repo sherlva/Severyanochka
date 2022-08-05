@@ -139,15 +139,19 @@ router.post("/upload/:productid/:mode", async (req, res) => {
   }
 });
 
-// router.post("/removes", async (req, res) => {
-//   const { delProducts } = req.body;
+router.post("/removes", async (req, res) => {
+  const { products } = req.body;
 
-//   try {
-//     await Products.findByIdAndUpdate(res.locals.user._id, {
-//       _id
-//     });
-//   } catch (error) {}
-// });
+  try {
+    await Products.findByIdAndUpdate(res.locals.user._id, {
+      $pullAll: { "cart.items": products  },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  res.redirect("/shopping");
+});
 
 // router.post("/remove", async (req, res) => {
 //   const userid = req.locals.user._id;
