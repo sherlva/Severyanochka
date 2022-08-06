@@ -74,7 +74,8 @@
   cursor: pointer;
   border: none;
 }
-.heart_like{
+
+.heart_like {
   font-size: 23px;
   color: red;
 }
@@ -207,6 +208,7 @@
   box-shadow: 0px 8px 16px rgba(202, 147, 96, 0.5);
   transform: scale(1.03);
 }
+
 .right_special_card:hover {
   box-shadow: 0px 8px 16px #c2fcb4;
   transform: scale(1.03);
@@ -420,5 +422,79 @@
 
   .stat_card_info {
     font-size: 12px;
+  }
+}
+
+
+
+.location_nav_name.active {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #ffffff;
+  background: #70c05b;
+  border-radius: 4px;
+  padding: 8px;
+  border: none;
+}
+
+.location_nav_name {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #606060;
+  background: #f3f2f1;
+  border-radius: 4px;
+  padding: 8px;
+  border: none;
+  margin-right: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.location_nav {
+  margin-bottom: 32px;
+}
+
+.tab_contents_map,
+.contents_map {
+  border-radius: 4px;
+  width: 1208px;
+  height: 354px;
+  margin-bottom: 80px;
+}
+
+.shops_location {
+  overflow: hidden;
+}
+
+.content_changes {
+  display: none;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

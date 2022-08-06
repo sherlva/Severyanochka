@@ -1,10 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const Card = require('../model/Mongo')
+router.get("/:id", async (req, res) => {
+    const card = await Card.findById(req.params.id)
 
-router.get("/", (req, res) => {
-    res.render('card.hbs',{
+    res.render('card.hbs', {
         title: 'Card',
+        card
     })
+
 });
+
+
 
 module.exports = router;

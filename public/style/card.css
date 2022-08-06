@@ -5,6 +5,7 @@
   list-style: none;
   box-sizing: border-box;
 }
+
 .container {
   width: 1208px;
   margin: auto;
@@ -16,9 +17,11 @@
   margin-bottom: 27px;
   padding: 27px 0 0;
 }
+
 .ordered_title_directions_main:first-child {
   margin-left: 0;
 }
+
 .ordered_title_directions_main {
   margin-right: 27.5px;
   font-family: "Rubik";
@@ -52,6 +55,7 @@
 
   color: #414141;
 }
+
 .art {
   font-family: "Rubik";
   font-style: normal;
@@ -64,11 +68,13 @@
 
   color: #414141;
 }
+
 .instruments {
   display: flex;
   align-items: center;
   margin-top: 22.5px;
 }
+
 .otziv {
   font-family: "Rubik";
   font-style: normal;
@@ -144,7 +150,7 @@ body {
 }
 
 .mySwiper,
-.mySwiper2{
+.mySwiper2 {
   margin-top: 21.5px;
 }
 
@@ -152,12 +158,14 @@ body {
 .buy-info {
   padding: 0px 40px;
 }
+
 .buy {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
+
 .cost {
   display: flex;
   flex-direction: column;
@@ -166,6 +174,7 @@ body {
 .buy .cost {
   display: flex;
 }
+
 .buy .cost .price {
   font-family: "Rubik";
   font-style: normal;
@@ -228,17 +237,18 @@ body {
   align-items: center;
 }
 
-.buy-button {
-  display: flex;
-  justify-content: center;
+form {
   width: 100%;
+}
+
+
+
+form .buy-button {
   padding: 16px;
   background: #ff6633;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 17.5px;
-}
-.buy-button h2 {
   font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
@@ -248,7 +258,10 @@ body {
 
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  border: none;
+  width: 100%;
 
   /* Main/onPrimary */
 
@@ -392,4 +405,12 @@ body {
   /* Main/onSurface */
 
   color: #414141;
+}
+
+.like_card {
+  border: none;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  
 }
