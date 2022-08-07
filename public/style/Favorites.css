@@ -16,7 +16,9 @@
   margin-left: 24px;
   color: #8f8f8f;
 }
-
+.price_currency {
+  display: flex;
+}
 .like {
   width: 32px;
   height: 32px;
@@ -130,14 +132,23 @@
 }
 
 .with_card_price,
-.without_card_price {
+.without_card_price,
+.currency {
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 150%;
   color: #414141;
+  margin-right: 4px;
 }
-
+#filter_btn {
+  display: none;
+}
+.filter_form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .with_card_text,
 .without_card_text {
   font-style: normal;
@@ -248,13 +259,14 @@
   background: #f3f2f1;
   border-radius: 4px;
 }
-.filtr_box p.first_filtr {
+.filtr_box .first_filtr {
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 150%;
   color: #414141;
+  width: 100%;
 }
 .frame11 {
   padding-top: 44px;
@@ -335,7 +347,7 @@
 .frame119 ul li:last-child {
   margin-bottom: 50px;
 }
-.card_btn_buyss button {
+.card_btn_buyss .apply {
   margin-top: 50px;
   cursor: pointer;
   display: flex;

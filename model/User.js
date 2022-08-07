@@ -76,7 +76,7 @@ const userSchema = new Schema({
         },
         time: {
           type: Date,
-          required: true
+          required: true,
         },
         product: {
           type: Schema.Types.ObjectId,
@@ -86,10 +86,9 @@ const userSchema = new Schema({
         price: {
           type: Number,
           default: 0,
-        }
+        },
       },
     ],
-    
   },
 });
 

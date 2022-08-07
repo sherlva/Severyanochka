@@ -12,10 +12,7 @@
     <div class="row">
       <div class="col-3">
         <div class="filtr_box">
-          <p class="first_filtr">
-            Фильтр
-          </p>
-
+          <p class="first_filtr">Фильтр</p>
         </div>
 
       </div>
@@ -85,22 +82,26 @@
           </div>
         </div>
         <div class="frame118_input">
-          <input type="text " for="radioa" value="1" />
-          <svg
-            width="16"
-            height="2"
-            viewBox="0 0 16 2"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0.5 1C0.5 0.723858 0.723858 0.5 1 0.5H15C15.2761 0.5 15.5 0.723858 15.5 1C15.5 1.27614 15.2761 1.5 15 1.5H1C0.723858 1.5 0.5 1.27614 0.5 1Z"
-              fill="#414141"
-            ></path>
-          </svg>
-          <input type="text " class="sums" value="100" />
+          <form action="/favorites" class="filter_form">
+            <input type="text " for="radioa" class="price_from" name="gt" />
+            <svg
+              width="16"
+              height="2"
+              viewBox="0 0 16 2"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.5 1C0.5 0.723858 0.723858 0.5 1 0.5H15C15.2761 0.5 15.5 0.723858 15.5 1C15.5 1.27614 15.2761 1.5 15 1.5H1C0.723858 1.5 0.5 1.27614 0.5 1Z"
+                fill="#414141"
+              ></path>
+            </svg>
+            <input type="text " class="sums price_until" name="lt" />
+            <label for=""></label>
+            <input type="submit" id="filter_btn" />
+          </form>
         </div>
         <div class="line">
           <svg
@@ -222,7 +223,8 @@
           <p>В наличии</p>
         </div>
         <div class="card_btn_buyss">
-          <button>Применить</button>
+          <label for="filter_btn" class="apply">Применить</label>
+
         </div>
       </div>
       <div class="col-9">
@@ -267,7 +269,10 @@
                     <P class="with_card_text">С картой</P>
                   </div>
                   <div class="without_card">
-                    <p class="without_card_price">{{product.price}} ₽</p>
+                    <div class="price_currency">
+                      <p class="without_card_price">{{product.price}}
+                      </p><span class="currency">₽</span>
+                    </div>
                     <P class="without_card_text">Обычная</P>
                   </div>
                 </div>

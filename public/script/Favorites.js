@@ -2,6 +2,7 @@ let togle = document.querySelector(".togle");
 let togleA = document.querySelector(".togle_one");
 let togleB = document.querySelector(".togle_two");
 
+
 togleA.addEventListener("click", () => {
   togle.style.background = "#70c05b";
   togleA.style.transition = ".3s";
