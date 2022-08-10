@@ -26,7 +26,7 @@
               <p class="time_price_value">3 006,83 ₽</p>
               <div class="time_price_date">
                 <label class="price_date_text" for="inp">Когда доставить</label>
-                <input class="hidden_input" type="date" id="inp" value=""/>
+                <input class="hidden_input" type="date" id="inp" value="" />
               </div>
             </div>
           </div>
@@ -34,13 +34,14 @@
       </div>
       <div class="ordered_cards">
         {{#each user.orders.items}}
+        {{#each product}}
         <div class="ordered_cards_card">
           <div class="card_top">
             <div class="card_icons_position">
               <div class="card_top_shopping">
                 <img src="/svg/shop-bin.svg" alt="" />
               </div>
-              <span class="card_top_count">{{count}}</span>
+              <span class="card_top_count">{{product.count}}</span>
               <div class="card_top_like">
                 <img src="/svg/like.svg" alt="svg" />
               </div>
@@ -59,9 +60,10 @@
               <img class="rating_star" src="/svg/rating.svg" alt="svg" />
               <img class="rating_star" src="/svg/rating.svg" alt="svg" />
             </div>
-            
+
           </div>
         </div>
+        {{/each}}
         {{/each}}
 
 
