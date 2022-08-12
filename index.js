@@ -73,7 +73,7 @@ app.use("/regstration", regstration);
 app.use("/admin", authMiddleware, adminRouter);
 
 try {
-  const port = normalizePort(process.env.port || 3000);
+  const port = normalizePort(process.env.PORT || 3000);
   app.listen(port, () => {
     console.log(`Sever ${port} porti bilan ishlayapti`);
   });
