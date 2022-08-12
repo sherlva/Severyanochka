@@ -36,7 +36,7 @@ app.use(
   })
 );
 
-// importing middlewares
+// importing middleware
 const authMiddleware = require("./middleware/auth");
 const userMiddleware = require("./middleware/user");
 const userDataMiddleware = require("./middleware/userData");
