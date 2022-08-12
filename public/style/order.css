@@ -175,6 +175,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 8px;
 }
 
+.card_top_img img{
+  width: 100%;
+}
+
 .card_top_count {
   font-family: "Rubik";
   font-style: normal;

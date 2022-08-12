@@ -141,42 +141,31 @@ router.post("/upload/:productid/:mode", async (req, res) => {
 
 router.post("/removes", async (req, res) => {
   const { products } = req.body;
+  
+  let user = await Users.findById(res.locals.user._id).populate(
+    "cart.items.product"
+  );
+  let totalPrice = 0;
+
+  user.cart.items.forEach((element, index) => {
+    if (products.includes(element.product._id)) {
+      user.cart.items.splice(index, 1);
+    }
+  });
+
+  user.cart.items.forEach((element, index) => {
+    totalPrice += element.product.price;
+  });
+
+  user.cart.price = totalPrice;
 
   try {
-    await Products.findByIdAndUpdate(res.locals.user._id, {
-      $pullAll: { "cart.items": products  },
-    });
+    await Users.findByIdAndUpdate(res.locals.user._id, user);
   } catch (error) {
     console.log(error);
   }
 
   res.redirect("/shopping");
 });
-
-// router.post("/remove", async (req, res) => {
-//   const userid = req.locals.user._id;
-//   const { id } = req.body;
-
-//   if (!id || !userid) {
-//     res.redirect("/shopping");
-//     return;
-//   }
-
-//   try {
-//     const totalCount = await Cart.findOne({ userid }).populate("userid");
-
-//     await Cart.findOneAndUpdate(
-//       { userid },
-//       {
-//         $pull: { products: { _id: id } },
-//         totalCount: totalCount.products.length - 1,
-//       }
-//     );
-//     res.send(await Cart.findOne({ userid }).populate("products.product"));
-//   } catch (error) {
-//     console.log(error);
-//     res.json({ ok: true, message: "Product is not removed" });
-//   }
-// });
 
 module.exports = router;

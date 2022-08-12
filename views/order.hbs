@@ -4,6 +4,7 @@
   <header>
     <div class="container">
       {{! max-width of container is 1208px }}
+
       <div class="header_ordered">
         <div class="header_ordered_title">
           <div class="ordered_title_directions">
@@ -13,27 +14,29 @@
           </div>
           <h1 class="title_text">Заказы</h1>
         </div>
-        <div class="ordered_products">
-          <div class="ordered_products_time">
-            <div class="products_time_times">
-              <p class="time_times_time order_date">01.04.2021</p>
-              <p class="time_times_time">11:00-14:00</p>
-              <div class="products_time_procces">
-                <span>В процессе</span>
-              </div>
+      </div>
+
+      {{#each user.orders.items}}
+      <div class="ordered_products">
+        <div class="ordered_products_time">
+          <div class="products_time_times">
+            <p class="time_times_time order_date">{{time}}</p>
+            <p class="time_times_time"></p>
+            <div class="products_time_procces">
+              <span>В процессе</span>
             </div>
-            <div class="products_time_price">
-              <p class="time_price_value">3 006,83 ₽</p>
-              <div class="time_price_date">
-                <label class="price_date_text" for="inp">Когда доставить</label>
-                <input class="hidden_input" type="date" id="inp" value="" />
-              </div>
+          </div>
+          <div class="products_time_price">
+            <p class="time_price_value">{{price}} ₽</p>
+            <div class="time_price_date">
+              <label class="price_date_text" for="inp">Когда доставить</label>
+              <input class="hidden_input" type="date" id="inp" value="" />
             </div>
           </div>
         </div>
       </div>
       <div class="ordered_cards">
-        {{#each user.orders.items}}
+
         {{#each product}}
         <div class="ordered_cards_card">
           <div class="card_top">
@@ -41,30 +44,26 @@
               <div class="card_top_shopping">
                 <img src="/svg/shop-bin.svg" alt="" />
               </div>
-              <span class="card_top_count">{{product.count}}</span>
-              <div class="card_top_like">
+              <span class="card_top_count">{{count}}</span>
+              {{!-- <div class="card_top_like">
                 <img src="/svg/like.svg" alt="svg" />
-              </div>
+              </div> --}}
             </div>
             <div class="card_top_img">
               <img src="{{product.img}}" alt="png" />
             </div>
           </div>
           <div class="card_bottom">
-            <p class="card_bottom_price">{{product.price}}</p>
+            <p class="card_bottom_price">{{product.price}}  ₽</p>
             <p class="card_bottom_info">{{product.name}}</p>
-            <div class="card_bottom_rating">
-              <img class="rating_star" src="/svg/shop-bin.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-              <img class="rating_star" src="/svg/rating.svg" alt="svg" />
-            </div>
+            <div class="cart_stars card_stars">
+                  <input type="hidden" id="stars" value="{{product.star}}" />
+                </div>
 
           </div>
         </div>
         {{/each}}
-        {{/each}}
+
 
 
       </div>
@@ -72,6 +71,7 @@
         <button class="ordered_view_btn"><img class="view_btn_icon" src="/svg/eye.svg" alt="svg" />Просмотреть
           заказ</button>
       </div>
+      {{/each}}
     </div>
   </header>
 
@@ -206,7 +206,7 @@
     </div>
   </section> --}}
 
-  <section class="third_part container">
+  {{!-- <section class="third_part container">
     <div class="third_part_time">
       <div class="part_time_times">
         <p class="time_times_time">01.04.2021</p>
@@ -466,7 +466,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   {{!-- <section class="for_view_more container">
     <div class="hide_cards">
@@ -701,9 +701,9 @@
     </div>
   </section> --}}
 
-  <div class="view_more container">
+  {{!-- <div class="view_more container">
     <button class="view_more_btn">Показать ещё</button>
-  </div>
+  </div> --}}
 
   <script src="/script/order.js"></script>
 </body>

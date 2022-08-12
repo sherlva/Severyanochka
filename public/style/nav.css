@@ -196,7 +196,7 @@ nav {
   bottom: -150%;
   background: #fff;
   right: 50%;
-  transform: translateX(50%);
+  transform: translateX(50%) translateY(-140%);
 }
 
 .dropdown_item:first-child{

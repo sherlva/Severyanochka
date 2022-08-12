@@ -2,27 +2,35 @@ const express = require("express");
 const User = require("../model/User");
 const router = express.Router();
 const Users = require("../model/User");
+const moment = require("moment");
 
 router.get("/", async (req, res) => {
-  const user = await User.findById(res.locals.user._id).populate('orders.items.product')
-  // console.log(user.orders);
+  let user = await User.findById(res.locals.user._id).populate(
+    "orders.items.product.product"
+  );
   res.render("order", {
     title: "Order",
-    user
+    user,
   });
 });
 
 router.post("/add", async (req, res) => {
   const user = await Users.findOne({ _id: res.locals.user._id });
-  const time = new Date().toLocaleDateString()
-  const product = {$each: user.cart.items}
+  const time = moment().format("YYYY.MM.DD-hh:mm");
+  const product = { $each: user.cart.items };
   await Users.findOneAndUpdate(
     { _id: res.locals.user._id },
     {
-      $push: {'orders.items': {product: product['$each'], price: user.cart.price, time}}
+      $push: {
+        "orders.items": {
+          product: product["$each"],
+          price: user.cart.price,
+          time,
+        },
+      },
     }
   );
-  await Users.findOneAndUpdate( 
+  await Users.findOneAndUpdate(
     { _id: res.locals.user._id },
     {
       $set: { "cart.items": [], "cart.price": 0 },

@@ -108,6 +108,12 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color:#000;
+  transition: .5s;
+}
+
+.like:hover{
+color: red;
 }
 
 .discount_precent {

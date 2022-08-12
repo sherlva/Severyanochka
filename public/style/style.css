@@ -73,6 +73,11 @@
   justify-content: center;
   cursor: pointer;
   border: none;
+  transition: .5s;
+}
+
+.like:hover{
+  color: red;
 }
 
 .heart_like {

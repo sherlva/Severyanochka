@@ -100,13 +100,22 @@ window.addEventListener("load", function (e) {
     });
   }
 
-  selectProduct();
+  // function selectAll() {
+  //   let selectCart = document.querySelectorAll(".order_cards_card");
+  //   selectCart.forEach((item) => {
+  //     item.click();
+  //   });
+  // }
 
+  // const selAll = document.querySelector(".choose");
+  // selAll.addEventListener("click", selectAll);
+
+  selectProduct();
   const remove_form = document.querySelector(".remove_form");
   const remove = document.querySelector(".choose_remove .remove");
   remove.addEventListener("click", () => {
     const selectCart = document.querySelectorAll(".order_cards_card");
-    const products = [];
+    let products = [];
     selectCart.forEach((item) => {
       if (item.classList.contains("selected")) {
         products.push(item.getAttribute("data-id"));
