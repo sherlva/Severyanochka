@@ -1,0 +1,331 @@
+<link rel="stylesheet" href="/style/style.css" />
+<div class="hero">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="hero_img">
+                <img src="/img/index_img/img.png" alt="">
+            </div>
+            <div class="hero_text">
+                <h1 class="hero_text_item">Доставка бесплатно от 1000 ₽</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="discount">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="discount_title">
+                <h2>Акции</h2>
+            </div>
+            <div class="discount_link">
+                <a href="#" class="discount_link_df row"><span>Все акции</span><svg width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.64645 5.64645C8.84171 5.45118 9.15829 5.45118 9.35355 5.64645L15.3536 11.6464C15.5488 11.8417 15.5488 12.1583 15.3536 12.3536L9.35355 18.3536C9.15829 18.5488 8.84171 18.5488 8.64645 18.3536C8.45118 18.1583 8.45118 17.8417 8.64645 17.6464L14.2929 12L8.64645 6.35355C8.45118 6.15829 8.45118 5.84171 8.64645 5.64645Z"
+                            fill="#606060" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cards row justify-content-between align-items-center">         
+            {{#each products}}
+            <a href="/card/{{_id}}">
+            <div class="card">
+                <div class="card_top">
+                    <div>
+                        <form action="/favorites/{{id}}" method="post">
+                        <button type="submit" class="like">
+                           <i class="fa-solid fa-heart"></i>
+                        </button>
+                        </form>
+                    </div>
+                    <img src="{{img}}" alt="" class="card_img">
+                    <div class="discount_precent">
+                        <p>{{discount}}</p>
+                    </div>
+                </div>
+                <div class="card_bottom">
+                    <div class="card_price row justify-content-between align-items-center">
+                        <div class="with_card">
+                            <p class="with_card_price" data-price="{{price}}" data-discount="{{discount}}"></p>
+                            <P class="with_card_text">С картой</P>
+                        </div>
+                        <div class="without_card">
+                            <p class="without_card_price">{{price}} ₽</p>
+                            <P class="without_card_text">Обычная</P>
+                        </div>
+                    </div>
+                    <div class="card_title">
+                        <h3>{{name}}</h3>
+                    </div>
+                    <div class="cart_stars card_stars">
+                        <input type="hidden" id="stars" value="{{star}}">
+                    </div>
+                    <div class="card_btn_buy">
+                        <form action="/shopping/add/{{id}}" method="post">
+                        <button type="submit">В корзину</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </a>           
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<section class="news">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="discount_title">
+                <h2>Новинки</h2>
+            </div>
+            <div class="discount_link">
+                <a href="#" class="discount_link_df row"><span>Все новинки</span><svg width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.64645 5.64645C8.84171 5.45118 9.15829 5.45118 9.35355 5.64645L15.3536 11.6464C15.5488 11.8417 15.5488 12.1583 15.3536 12.3536L9.35355 18.3536C9.15829 18.5488 8.84171 18.5488 8.64645 18.3536C8.45118 18.1583 8.45118 17.8417 8.64645 17.6464L14.2929 12L8.64645 6.35355C8.45118 6.15829 8.45118 5.84171 8.64645 5.64645Z"
+                            fill="#606060" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cards row justify-content-between align-items-center">
+            {{#each products}}
+            <a href="/card/{{_id}}">    
+                <div class="card" >
+                <div class="card_top">
+                    <div>
+                        <form action="/favorites/{{id}}" method="post">
+                        <button type="submit" class="like">
+                             <i class="fa-solid fa-heart"></i>
+                        </button>
+                        </form>
+                    </div>
+                    <img src="{{img}}" alt="" class="card_img">
+
+                </div>
+                <div class="card_bottom">
+                    <div class="card_price row justify-content-between align-items-center">
+                        <div class="with_card">
+                            <p class="without_card_price ">{{price}} ₽</p>
+                        </div>
+                    </div>
+                    <div class="card_title">
+                        <h3>{{name}}</h3>
+                    </div>
+                    <div class="cart_stars card_stars">
+                        <input type="hidden" id="stars" value="{{star}}">
+                    </div>
+                    <div class="card_btn_buy">
+                        <button>В корзину</button>
+                    </div>
+                </div>
+            </div>
+                
+            </a>
+          
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<section class="old">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="discount_title">
+                <h2>Покупали раньше</h2>
+            </div>
+            <div class="discount_link">
+                <a href="#" class="discount_link_df row"><span>Все покупки</span><svg width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.64645 5.64645C8.84171 5.45118 9.15829 5.45118 9.35355 5.64645L15.3536 11.6464C15.5488 11.8417 15.5488 12.1583 15.3536 12.3536L9.35355 18.3536C9.15829 18.5488 8.84171 18.5488 8.64645 18.3536C8.45118 18.1583 8.45118 17.8417 8.64645 17.6464L14.2929 12L8.64645 6.35355C8.45118 6.15829 8.45118 5.84171 8.64645 5.64645Z"
+                            fill="#606060" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cards row justify-content-between align-items-center">
+            {{#each products}}
+            <a href="/card/{{_id}}">
+               <div class="card">
+                <div class="card_top">
+                    <div>
+                        <form action="/favorites/{{id}}" method="post">
+                        <button type="submit" class="like">
+                               <i class="fa-solid fa-heart"></i>
+                        </button>
+                        </form>
+                    </div>
+                    <img src="{{img}}" alt="" class="card_img">
+                    <div class="discount_precent">
+                        <p>{{discount}}</p>
+                    </div>
+                </div>
+                <div class="card_bottom">
+                    <div class="card_price row justify-content-between align-items-center">
+                        <div class="with_card">
+                            <p class="without_card_price ">{{price}} ₽ </p>
+                        </div>
+                    </div>
+                    <div class="card_title">
+                        <h3>{{name}}</h3>
+                    </div>
+                    <div class="cart_stars card_stars">
+                        <input type="hidden" id="stars" value="{{star}}">
+                    </div>
+                    <div class="card_btn_buy">
+                        <button>В корзину</button>
+                    </div>
+                </div>
+            </div>
+            </a>
+         
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<section class="special">
+    <div class="container">
+        <h2 class="special_title">Специальные предложения</h2>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="left_special_card">
+                <div class="special_card_info">
+                    <h3 class="special_card_title">Оформите карту «Северяночка»</h3>
+                    <p class="special_card_text">И получайте бонусы при покупке в магазинах и на сайте</p>
+                </div>
+                <img class="special_left_img" src="/img/index_img/special.png" alt="">
+            </div>
+            <div class="right_special_card">
+                <div class="special_card_info">
+                    <h2 class="special_card_title">Покупайте <br> акционные товары</h2>
+                    <p class="special_card_text">И получайте вдвое больше бонусов</p>
+                </div>
+                <img class="special_right_img" src="/img/index_img/special2.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map">
+    <div class="container">
+        <h2 class="special_title">Специальные предложения</h2>
+    </div>
+    <div class="container">
+      <div class="shops_location">
+      <div class="location_nav">
+        <button class="location_nav_name" onclick="openCity(event, 'content-changes1')"
+          id="defaultOpen">п.Щельяюр</button>
+        <button class="location_nav_name" onclick="openCity(event, 'content-changes2')">д.Вертеп</button>
+        <button class="location_nav_name" onclick="openCity(event, 'content-changes3')">с.Краснобор</button>
+        <button class="location_nav_name" onclick="openCity(event, 'content-changes4')">д.Диюр</button>
+      </div>
+      <div class="location_tab_contents">
+        <div class="content_changes active" id="content-changes1">
+          <div class="tab_contents_map">
+            <iframe class="contents_map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398134.5071967675!2d7.103229463182268!3d46.809595485407144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2z0KjQstC10LnRhtCw0YDQuNGP!5e0!3m2!1sru!2s!4v1655192178347!5m2!1sru!2s"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="content_changes" id="content-changes2">
+          <div class="tab_contents_map">
+            <iframe class="contents_map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398134.5071967675!2d7.103229463182268!3d46.809595485407144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2z0KjQstC10LnRhtCw0YDQuNGP!5e0!3m2!1sru!2s!4v1655192178347!5m2!1sru!2s"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="content_changes" id="content-changes3">
+          <div class="tab_contents_map">
+            <iframe class="contents_map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398134.5071967675!2d7.103229463182268!3d46.809595485407144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2z0KjQstC10LnRhtCw0YDQuNGP!5e0!3m2!1sru!2s!4v1655192178347!5m2!1sru!2s"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="content_changes" id="content-changes4">
+          <div class="tab_contents_map">
+            <iframe class="contents_map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398134.5071967675!2d7.103229463182268!3d46.809595485407144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2z0KjQstC10LnRhtCw0YDQuNGP!5e0!3m2!1sru!2s!4v1655192178347!5m2!1sru!2s"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="discount_title">
+                <h2>Статьи</h2>
+            </div>
+            <div class="discount_link">
+                <a href="#" class="discount_link_df row"><span>Все статьи</span><svg width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.64645 5.64645C8.84171 5.45118 9.15829 5.45118 9.35355 5.64645L15.3536 11.6464C15.5488 11.8417 15.5488 12.1583 15.3536 12.3536L9.35355 18.3536C9.15829 18.5488 8.84171 18.5488 8.64645 18.3536C8.45118 18.1583 8.45118 17.8417 8.64645 17.6464L14.2929 12L8.64645 6.35355C8.45118 6.15829 8.45118 5.84171 8.64645 5.64645Z"
+                            fill="#606060" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="stat_cards row align-items-center justify-content-between">
+            <div class="stat_card">
+                <div class="stat_card_top">
+                    <img src="/img/index_img/stats.jpg" alt="">
+                </div>
+                <div class="stat_card_bottom">
+                    <p class="stat_card_date">05.03.2021</p>
+                    <h2 class="stat_card_title">Режим использования масок и перчаток на территории магазинов</h3>
+                    <p class="stat_card_info">Подробная информация о режимах использования масок и перчаток на
+                        территории магазинов "ЛЕНТА". Информация обновляется каждый будний день.</p>
+                    <button class="stat_card_btn">
+                        <p>Подробнее</p>
+                    </button>
+                </div>
+            </div>
+            <div class="stat_card">
+                <div class="stat_card_top">
+                    <img src="/img/index_img/stats.jpg" alt="">
+                </div>
+                <div class="stat_card_bottom">
+                    <p class="stat_card_date">05.03.2021</p>
+                    <h2 class="stat_card_title">Режим использования масок и перчаток на территории магазинов</h3>
+                    <p class="stat_card_info">Подробная информация о режимах использования масок и перчаток на
+                        территории магазинов "ЛЕНТА". Информация обновляется каждый будний день.</p>
+                    <button class="stat_card_btn active_stat_btn">
+                        <p>Подробнее</p>
+                    </button>
+                </div>
+            </div>
+            <div class="stat_card">
+                <div class="stat_card_top">
+                    <img src="/img/index_img/stats.jpg" alt="">
+                </div>
+                <div class="stat_card_bottom">
+                    <p class="stat_card_date">05.03.2021</p>
+                    <h2 class="stat_card_title">Режим использования масок и перчаток на территории магазинов</h3>
+                    <p class="stat_card_info">Подробная информация о режимах использования масок и перчаток на
+                        территории магазинов "ЛЕНТА". Информация обновляется каждый будний день.</p>
+                    <button class="stat_card_btn">
+                        <p>Подробнее</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
